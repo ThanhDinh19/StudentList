@@ -25,7 +25,13 @@ function dssv(){
         }
     }
 
-    list[list.length] = sv;
+    let index = list.findIndex((c)=>c.mssv == sv.mssv); //nếu tìm thấy sẽ trả về vị trí của sv trong mảng.
+    if(index >= 0)
+        list.splice(index, 1, sv);
+    else
+        list[list.length] = sv;
+
+    
 
     clear(); //xóa bảng input sau khi nhập
     showResult();
@@ -41,6 +47,7 @@ function showResult(){
                 <div class="info-3">${sv.diem}</div>
                 <div class="info-4">${sv.XepLoai()}</div>
                 <div class="info-5"> <button class="removeStudent" onclick="removeSV(${sv.mssv})">Remove</button> </div> 
+                <div class="info-6"> <button class="editStudent" onclick="editSV(${sv.mssv})">Edit</button> </div>
         </div>`
     });
     document.getElementById("result").innerHTML = kq;
@@ -60,4 +67,15 @@ function removeSV(MSSV){
         }
     }
     showResult(); //sau khi xóa hiển thị lại danh sách
+}
+
+
+function editSV(MSSV){
+    for(let i = 0; i < list.length; i++){
+        if(list[i].mssv == MSSV){
+            document.forms["pointTable"]["mssv"].value = list[i].mssv;
+            document.forms["pointTable"]["ten"].value = list[i].ten;
+            document.forms["pointTable"]["diem"].value = list[i].diem;
+        }
+    }
 }
