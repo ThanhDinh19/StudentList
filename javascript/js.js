@@ -27,7 +27,8 @@ function dssv(){
 
     list[list.length] = sv;
 
-    document.getElementById("result").innerHTML = showResult();
+    clear(); //xóa bảng input sau khi nhập
+    showResult();
 }
 
 function showResult(){
@@ -39,8 +40,24 @@ function showResult(){
                 <div class="info-2">${sv.ten}</div>
                 <div class="info-3">${sv.diem}</div>
                 <div class="info-4">${sv.XepLoai()}</div>
+                <div class="info-5"> <button class="removeStudent" onclick="removeSV(${sv.mssv})">Remove</button> </div> 
         </div>`
     });
-    return kq;  
+    document.getElementById("result").innerHTML = kq;
 }
 
+
+function clear(){
+    document.forms["pointTable"]["mssv"].value = "";
+    document.forms["pointTable"]["ten"].value = "";
+    document.forms["pointTable"]["diem"].value = "";
+}
+
+function removeSV(MSSV){
+    for(let i = 0; i < list.length; i++){
+        if(list[i].mssv == MSSV){
+            list.splice(i, 1);
+        }
+    }
+    showResult(); //sau khi xóa hiển thị lại danh sách
+}

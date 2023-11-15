@@ -33,12 +33,12 @@ h2{
 }
 
 .info-1{
-    width: 30%;
+    width: 20%;
     border: 1px solid #000;
     padding: 1px;
 }
 .info-2{
-    width: 40%;
+    width: 35%;
     border: 1px solid #000;
     padding: 1px;
 }
@@ -51,6 +51,11 @@ h2{
     width: 20%;
     border: 1px solid #000;
     padding: 1px;
+}
+.info-5{
+    width: 15%;
+    padding: 1px;
+    border: 1px solid #000;
 }
 
 
@@ -69,6 +74,11 @@ form{
 }
 button{
     width: 15%;
+}
+
+.removeStudent{
+    width: 62px;
+    height: 21px;
 }
 
 .Output{
