@@ -38,18 +38,26 @@ function dssv(){
 }
 
 function showResult(){
-    var kq = "";
+    var kq = ` <table>
+                <tr>
+                <td class="info">Code student</td>
+                <td class="info">Name</td>
+                <td class="info">Mark</td>
+                <td class="info bottom">Classification</td>
+                </tr>`;
     list.forEach(sv => {
         kq += 
-        `<div id="infoStudent">
-                <div class="info-1">${sv.mssv}</div>
-                <div class="info-2">${sv.ten}</div>
-                <div class="info-3">${sv.diem}</div>
-                <div class="info-4">${sv.XepLoai()}</div>
-                <div class="info-5"> <button class="removeStudent" onclick="removeSV(${sv.mssv})">Remove</button> </div> 
-                <div class="info-6"> <button class="editStudent" onclick="editSV(${sv.mssv})">Edit</button> </div>
-        </div>`
+                `<tr>
+                <td class="info">${sv.mssv}</td>
+                <td class="info">${sv.ten}</td>
+                <td class="info">${sv.diem}</td>
+                <td class="info bottom">${sv.XepLoai()}</td>
+                <td><button onclick="editSV(${sv.mssv})">Edit</button></td>
+                <td><button onclick="removeSV(${sv.mssv})">Remove</button></td>
+                </tr>`        
     });
+    kq += ` </table>`;
+
     document.getElementById("result").innerHTML = kq;
 }
 
